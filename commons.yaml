@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+ commons:
+  environment:
+   spring.data.mongodb.uri: ${MONGURI}
+   eureka.client.serviceUrl.defaultZone: ${EUREKAURL}
+
+   
+
+

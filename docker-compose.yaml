@@ -3,22 +3,39 @@ services:
  pushservice:
   build: pushservice
   container_name: pushservice
+  extends:
+   file: commons.yaml
+   service: commons
+  environment:
+   server.port: ${PUSH_PORT}
  smsservice:
   build: smsservice
   container_name: smsservice
+  extends:
+   file: commons.yaml
+   service: commons
+  environment:
+   server.port: ${SMS_PORT}
  emailservice:
   build: emailservice
   container_name: emailservice
+  extends:
+   file: commons.yaml
+   service: commons
+  environment:
+   server.port: ${EMAIL_PORT}
  eureka:
   build: eureka
   container_name: eureka
   ports: 
-   - 8761:8761
+   - ${EUREKA_PORT}:${EUREKA_PORT}
  gateway:
   build: gateway
   container_name: gateway
   ports: 
-   - 8080:8080
+   - ${GATEWAY_PORT}:${GATEWAY_PORT}
+  environment:
+   eureka.client.serviceUrl.defaultZone: ${EUREKAURL}
  mongodb:
   image : mongo
   container_name: mongodb
