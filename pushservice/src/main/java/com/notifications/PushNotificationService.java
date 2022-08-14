@@ -3,6 +3,9 @@ package com.notifications;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * Push notification service. Sends a push notification.
+ */
 @SpringBootApplication
 public class PushNotificationService {
 
